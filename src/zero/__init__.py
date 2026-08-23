@@ -12,7 +12,7 @@ from zero.interface.precomp_lib import PreCompiledLibrary
 from zero.interface.glob import FileGlob
 from zero.interface.system import System
 from zero.interface.internals import Internals
-from zero.interface.arguments import Flags, Macro
+from zero.interface.arguments import Flags
 from zero.interface.user_options import UserOptions
 
 __all__ = [
@@ -28,5 +28,4 @@ __all__ = [
 	"Internals",
 	"Flags",
 	"UserOptions",
-	"Macro"
 ]

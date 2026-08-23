@@ -67,7 +67,7 @@ class Orchestrator:
 
 		config.fresh_build = fresh_build
 		config.export_compile_commands = export_compile_cmd
-		config.threads = threads
+		config.threads = max(1, threads)
 
 		config.build_script = Path("zerobuild.py")
 

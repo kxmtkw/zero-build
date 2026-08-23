@@ -24,7 +24,7 @@ class Build:
 		self._compiler: UsableCompilerType | None = None
 		self._compiler_object: BaseCompilerDriver
 		self._arguments: list[str] = []
-		self._export_compile_commands: bool = False
+		self._export_compile_commands: bool = True
 
 
 	def _validate(self) -> None:

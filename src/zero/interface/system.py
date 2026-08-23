@@ -16,7 +16,7 @@ class System:
 
 	@classmethod
 	def platform(cls) -> str:
-		"""Get the host platform in which this build script will be run."""
+		"""Get the host platform in which this build script will be run. Equivalent to sys.platform"""
 		return sys.platform
 
 

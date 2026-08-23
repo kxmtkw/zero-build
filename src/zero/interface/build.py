@@ -2,7 +2,7 @@ from pathlib import Path
 
 from zero.compilers.base import BaseCompilerDriver
 from zero.compilers.manager import CompilerManager
-from zero.compilers.types import CompilerType
+from zero.compilers.types import CompilerType, UsableCompilerType
 
 from zero.interface.types import FlagType
 from zero.interface.internals import Internals
@@ -21,7 +21,7 @@ class Build:
 
 	def __init__(self) -> None:
 		self._directory: Path = Path("build")
-		self._compiler: CompilerType | None = None
+		self._compiler: UsableCompilerType | None = None
 		self._compiler_object: BaseCompilerDriver
 		self._arguments: list[str] = []
 		self._export_compile_commands: bool = False
@@ -30,7 +30,7 @@ class Build:
 	def _validate(self) -> None:
 		
 		if self._compiler is None:
-			raise ZeroAPIError("Compiler has not been specified for the build system.")
+			return
 		
 		try:
 			self._compiler_object = CompilerManager.getCompiler(self._compiler)
@@ -51,7 +51,7 @@ class Build:
 
 
 	@compiler.setter
-	def compiler(self, name: CompilerType):
+	def compiler(self, name: UsableCompilerType):
 		self._compiler = name
 
 

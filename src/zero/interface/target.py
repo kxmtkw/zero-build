@@ -27,21 +27,39 @@ class Target:
 
 
 	def _validate(self, build: Build) -> None:
+
 		
 		if not hasattr(self, "_source"):
 			raise ZeroAPIError(f"Source has not been specified for target [bold]{getattr(self, "_name", "unknown")}[/bold].")
 
-		try:	
-			self._compiler_object = build._compiler_object if self._compiler == "inherit" else CompilerManager.getCompiler(self._compiler)
-		except ValueError:
-			raise ZeroAPIError(f"Unknown compiler specified for target [bold]{getattr(self, '_name', 'unknown')}[/bold]: '{self._compiler}'")
+
+		if self._compiler == "inherit":
+
+			if build._compiler is None:
+				raise ZeroAPIError(
+					f"Cannot inherit compiler for target [bold]{getattr(self, "_name", "unknown")}[/bold] "
+					"when no fallback compiler has been specified for build."
+				)
+			
+			self._compiler_object = build._compiler_object
+
+		else:
+			try:
+				self._compiler_object = CompilerManager.getCompiler(self._compiler)
+			except ValueError:
+				raise ZeroAPIError(
+					f"Unknown compiler specified for target [bold]{getattr(self, '_name', 'unknown')}[/bold]: '{self._compiler}'"
+				)
+
 
 		if not self._compiler_object.doesExist():
 			raise ZeroAPIError(f"Compiler '{self._compiler}' not found in PATH for target [bold]{getattr(self, '_name', 'unknown')}[/bold].")
 
+
 		for lib in self._linked_libs:
 			if not isinstance(lib, Library):
 				raise ZeroAPIError(f"Linked library '{lib}' is not an instance of Library for target [bold]{getattr(self, '_name', 'unknown')}[/bold].")
+
 
 		self._arguments = build._arguments + self._arguments
 		

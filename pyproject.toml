@@ -5,7 +5,7 @@ description = "A clean, pythonic, DAG-based C/C++ build system."
 readme = "README.md"
 requires-python = ">=3.10"
 authors = [
-    { name = "Haseeb", email = "haseeeb8j@gmail.com" }
+    { name = "Haseeb", email = "abdulhaseeb.8j@gmail.com" }
 ]
 dependencies = [
     "rich>=13.0.0",

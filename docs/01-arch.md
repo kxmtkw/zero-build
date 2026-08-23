@@ -8,8 +8,7 @@ The sole reason Zero exists is because *I did not want to learn CMake syntax.* T
 
 My main design goal for this project was to make a build system which as easy to write as possible. 
 
-Zero also avoid implictness,
-the user has to be explicit with their flags and compilers to use the build system properly.
+Zero also avoid implictness, the user has to be explicit with their flags and compilers to use the build system properly.
 
 ### Principle
 Like most build systems, Zero uses a *DAG* (Directed Acyclic Graph) to handle dependencies.

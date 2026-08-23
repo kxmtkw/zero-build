@@ -46,7 +46,7 @@ class TerminalReporter:
 		self._phase_name = phase_name
 		self._phase_action = phase_action
 		self._console.print(f"[bold blue]── {self._phase_name}")
-		self._status = self._console.status(f"[bold blue]{self._phase_action}", spinner="dots")
+		self._status = self._console.status(f"[bold blue]{self._phase_action}", spinner="dots3", spinner_style="blue")
 		self._status.start()
 
 

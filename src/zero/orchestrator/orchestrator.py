@@ -119,7 +119,7 @@ class Orchestrator:
 		config = self.configureBuild(build.directory, fresh_build, threads, build._export_compile_commands)
 			
 		self.reporter.info("Directory", f"{str(build.directory)}")
-		self.reporter.info("Threads", f"compiling with {config.threads} thread{'s' if config.threads > 1 else 0}")
+		self.reporter.info("Threads", f"compiling with {config.threads} thread{'s' if config.threads > 1 else ''}")
 
 		# Making the DAG
 		self.graph = GraphConstructor(config)

@@ -22,18 +22,29 @@ class TerminalReporter:
 			TerminalReporter._instance = self
 
 
-	def print(self, *objects, end="\n"):
-		self._console.print(*objects, end=end)
-		
+	def print(
+		self,
+		*values: object, 
+		sep: str = " ", 
+		end: str = "\n", 
+	):
+		self._console.print(
+			f"    [blue]│[/blue] --" if self._is_phase else "--", 
+			*values, 
+			sep=sep, 
+			end=end, 
+			style="cyan"
+		)
+	
 
 	def startPhase(self, phase_name: str, phase_action: str):
 
 		if self._is_phase:
 			self.endPhase("Interrupted")
 
+		self._is_phase = True
 		self._phase_name = phase_name
 		self._phase_action = phase_action
-		self._is_phase = True
 		self._console.print(f"[bold blue]── {self._phase_name}")
 		self._status = self._console.status(f"[bold blue]{self._phase_action}", spinner="dots")
 		self._status.start()

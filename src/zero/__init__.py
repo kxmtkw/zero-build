@@ -14,6 +14,7 @@ from zero.interface.system import System
 from zero.interface.internals import Internals
 from zero.interface.arguments import Flags
 from zero.interface.user_options import UserOptions
+from zero.interface.print import print
 
 __all__ = [
 	"Path",
@@ -28,4 +29,5 @@ __all__ = [
 	"Internals",
 	"Flags",
 	"UserOptions",
+	"print"
 ]

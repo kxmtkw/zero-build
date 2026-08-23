@@ -95,6 +95,7 @@ class Orchestrator:
 		self.reporter.startPhase("Configuration", "Configuring")
 
 		module = self.loadConfigFile()
+
 		build = self.getBuild(module)
 		targets = self.getTargets(module)
 

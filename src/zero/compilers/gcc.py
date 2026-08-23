@@ -55,7 +55,7 @@ class GccCompiler(BaseCompilerDriver):
 			outfile, 
 			for_shared=for_shared, 
 			include_dirs=include_dirs,
-			arguments=self.base_arguments+arguments
+			arguments=arguments
 		)
 
 		if for_shared:

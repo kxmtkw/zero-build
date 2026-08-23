@@ -12,15 +12,10 @@ class BaseCompilerDriver(ABC):
 	def __init__(self) -> None:
 		super().__init__()
 		self.binary: str = ""
-		self.base_arguments: list[str] = []
 
 
 	def doesExist(self) -> bool:
 		return which(self.binary) is not None
-
-
-	def setBaseArguments(self, args: list[str]):
-		self.base_arguments = args
 
 
 	@abstractmethod

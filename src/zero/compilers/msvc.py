@@ -63,7 +63,7 @@ class MsvcCompiler(BaseCompilerDriver):
 			outfile,
 			for_shared=for_shared,
 			include_dirs=include_dirs,
-			arguments=self.base_arguments+arguments
+			arguments=arguments
 		)
 
 		if do_not_compile:
